@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Asmaul Husna Glorious Emerald Edition</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark-emerald: #0B2B1B;
+            --bg-parchment-green: #0E3522;
+            --gold-light: #F8E49A;
+            --gold-primary: #E5C158;
+            --gold-glorious: #D4AF37;
+            --gold-dark: #9A7B1C;
+            --gold-deep: #5E4A0F;
+            --shadow-color: rgba(3, 15, 9, 0.6);
+            --text-arabic: #FDF0CD;
+            --text-latin: #E0EADF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #05140C;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        /* Fullscreen Mobile Viewport Application */
+        .app-card {
+            background-color: var(--bg-parchment-green);
+            background-image: radial-gradient(#14482E 1.2px, transparent 1.2px);
+            background-size: 18px 18px;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            padding: 15px 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: inset 0 0 60px var(--shadow-color);
+            border: 10px solid transparent;
+            border-image: linear-gradient(135deg, var(--gold-light), var(--gold-glorious), var(--gold-dark), var(--gold-deep)) 1;
+            overflow: hidden;
+        }
+
+        /* Shimmer / Light Glow Effect on Frame */
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 45%,
+                rgba(254, 238, 185, 0.3) 50%,
+                transparent 55%
+            );
+            transform: rotate(30deg);
+            animation: shimmerEffect 6s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerEffect {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        /* Corner Arabesque Ornaments */
+        .corner-ornament {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 3px solid var(--gold-glorious);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .corner-tl { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 4px; right: 4px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 4px; left: 4px; border-right: none; border-top: none; }
+        .corner-br { bottom: 4px; right: 4px; border-left: none; border-bottom: none; }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--gold-glorious);
+            padding-bottom: 10px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .header-title {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--gold-light);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.6);
+            margin-bottom: 2px;
+        }
+
+        .header-meta {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        /* Developer Tag with Live Indicator */
+        .developer-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .live-indicator {
+            width: 7px;
+            height: 7px;
+            background-color: #00FF66;
+            border-radius: 50%;
+            box-shadow: 0 0 0 rgba(0, 255, 102, 0.4);
+            animation: pulseLive 1.5s infinite;
+        }
+
+        @keyframes pulseLive {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(0, 255, 102, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+            }
+        }
+
+        .developer-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: lowercase;
+            letter-spacing: 1.5px;
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-glorious), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 8px;
+            z-index: 3;
+            padding: 0 4px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(5, 25, 15, 0.7);
+            border: 1px solid var(--gold-glorious);
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: var(--gold-light);
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.95rem;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .search-input::placeholder {
+            color: rgba(229, 193, 88, 0.5);
+        }
+
+        /* Viewport List Area */
+        .husna-viewport {
+            flex-grow: 1;
+            position: relative;
+            overflow-y: auto;
+            z-index: 3;
+            padding-right: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .husna-viewport::-webkit-scrollbar {
+            width: 4px;
+        }
+        .husna-viewport::-webkit-scrollbar-thumb {
+            background: var(--gold-glorious);
+            border-radius: 2px;
+        }
+
+        /* Asmaul Husna Item Card */
+        .husna-card {
+            background: rgba(5, 25, 15, 0.55);
+            border: 1px dashed rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .husna-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .husna-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .husna-latin {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .husna-translation {
+            font-size: 0.85rem;
+            color: var(--text-latin);
+        }
+
+        .husna-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: var(--text-arabic);
+            text-align: right;
+            direction: rtl;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gold-primary);
+            margin-top: 6px;
+            z-index: 3;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-card">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header-title">أَسْمَاءُ اللَّهِ الْحُسْنَى</h1>
+            <div class="header-meta">
+                <span>Asmaul Husna (99 Nama Allah)</span>
+            </div>
+            <!-- Developer tag dengan titik hijau kelap-kelip -->
+            <div class="developer-container">
+                <div class="live-indicator"></div>
+                <div class="developer-tag">developer : fatur62</div>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari Asmaul Husna (contoh: Allah, Rahman, Pengasih)..." oninput="filterHusna()">
+        </div>
+
+        <!-- Viewport List -->
+        <main class="husna-viewport" id="husnaViewport">
+            <!-- Rendered by JS -->
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer-info">
+            <span id="totalCount">Menampilkan 99 Asmaul Husna</span>
+        </footer>
+    </div>
+
+    <script>
+        const husnaData = [
+            { no: 1, arabic: "يَا أَللَّهُ", latin: "Ya Allah", trans: "Allah SWT" },
+            { no: 2, arabic: "يَا رَحْمَانُ", latin: "Ya Rahman", trans: "Yang Maha Pengasih" },
+            { no: 3, arabic: "يَا رَحِيمُ", latin: "Ya Rahim", trans: "Yang Maha Penyayang" },
+            { no: 4, arabic: "يَا مَلِكُ", latin: "Ya Malik", trans: "Yang Maha Merajai" },
+            { no: 5, arabic: "يَا قُدُّوسُ", latin: "Ya Quddus", trans: "Yang Maha Suci" },
+            { no: 6, arabic: "يَا سَلَامُ", latin: "Ya Salam", trans: "Yang Maha Sejahtera" },
+            { no: 7, arabic: "يَا مُؤْمِنُ", latin: "Ya Mu'min", trans: "Yang Maha Memberi Keamanan" },
+            { no: 8, arabic: "يَا مُهَيْمِنُ", latin: "Ya Muhaymin", trans: "Yang Maha Pemelihara" },
+            { no: 9, arabic: "يَا عَزِيزُ", latin: "Ya 'Aziz", trans: "Yang Maha Perkasa" },
+            { no: 10, arabic: "يَا جَبَّارُ", latin: "Ya Jabbar", trans: "Yang Maha Kuasa/Memaksa" },
+            { no: 11, arabic: "يَا مُتَكَبِّرُ", latin: "Ya Mutakabbir", trans: "Yang Maha Megah" },
+            { no: 12, arabic: "يَا خَالِقُ", latin: "Ya Khaliq", trans: "Yang Maha Pencipta" },
+            { no: 13, arabic: "يَا بَارِئُ", latin: "Ya Bari'", trans: "Yang Maha Mengadakan" },
+            { no: 14, arabic: "يَا مُصَوِّرُ", latin: "Ya Mushawwir", trans: "Yang Maha Membentuk Rupa" },
+            { no: 15, arabic: "يَا غَفَّارُ", latin: "Ya Ghaffar", trans: "Yang Maha Pengampun" },
+            { no: 16, arabic: "يَا قَهَّارُ", latin: "Ya Qahhar", trans: "Yang Maha Memaksa" },
+            { no: 17, arabic: "يَا وَهَّابُ", latin: "Ya Wahhab", trans: "Yang Maha Pemberi Karunia" },
+            { no: 18, arabic: "يَا رَزَّاقُ", latin: "Ya Razzaq", trans: "Yang Maha Pemberi Rezeki" },
+            { no: 19, arabic: "يَا فَتَّاحُ", latin: "Ya Fattah", trans: "Yang Maha Pembuka Rahmat" },
+            { no: 20, arabic: "يَا عَلِيمُ", latin: "Ya 'Alim", trans: "Yang Maha Mengetahui" },
+            { no: 21, arabic: "يَا قَابِضُ", latin: "Ya Qabidh", trans: "Yang Maha Menyempitkan" },
+            { no: 22, arabic: "يَا بَاسِطُ", latin: "Ya Basith", trans: "Yang Maha Melapangkan" },
+            { no: 23, arabic: "يَا خَافِضُ", latin: "Ya Khafidh", trans: "Yang Maha Merendahkan" },
+            { no: 24, arabic: "يَا رَافِعُ", latin: "Ya Rafi'", trans: "Yang Maha Meninggikan" },
+            { no: 25, arabic: "يَا مُعِزُّ", latin: "Ya Mu'izz", trans: "Yang Maha Memuliakan" },
+            { no: 26, arabic: "يَا مُذِلُّ", latin: "Ya Mudzil", trans: "Yang Maha Menghinakan" },
+            { no: 27, arabic: "يَا سَمِيعُ", latin: "Ya Sami'", trans: "Yang Maha Mendengar" },
+            { no: 28, arabic: "يَا بَصِيرُ", latin: "Ya Bashir", trans: "Yang Maha Melihat" },
+            { no: 29, arabic: "يَا حَكَمُ", latin: "Ya Hakam", trans: "Yang Maha Menetapkan" },
+            { no: 30, arabic: "يَا عَدْلُ", latin: "Ya 'Adl", trans: "Yang Maha Adil" },
+            { no: 31, arabic: "يَا لَطِيفُ", latin: "Ya Lathif", trans: "Yang Maha Lembut" },
+            { no: 32, arabic: "يَا خَبِيرُ", latin: "Ya Khabir", trans: "Yang Maha Mengetahui Rahasia" },
+            { no: 33, arabic: "يَا حَلِيمُ", latin: "Ya Halim", trans: "Yang Maha Penyantun" },
+            { no: 34, arabic: "يَا عَظِيمُ", latin: "Ya 'Azhim", trans: "Yang Maha Agung" },
+            { no: 35, arabic: "يَا غَفُورُ", latin: "Ya Ghafur", trans: "Yang Maha Pengampun" },
+            { no: 36, arabic: "يَا شَكُورُ", latin: "Ya Syakur", trans: "Yang Maha Pembalas Budi" },
+            { no: 37, arabic: "يَا عَلِيُّ", latin: "Ya 'Aliy", trans: "Yang Maha Tinggi" },
+            { no: 38, arabic: "يَا كَبِيرُ", latin: "Ya Kabir", trans: "Yang Maha Besar" },
+            { no: 39, arabic: "يَا حَفِيظُ", latin: "Ya Hafizh", trans: "Yang Maha Memelihara" },
+            { no: 40, arabic: "يَا مُقِيتُ", latin: "Ya Muqit", trans: "Yang Maha Pemberi Kecukupan" },
+            { no: 41, arabic: "يَا حَسِيبُ", latin: "Ya Hasib", trans: "Yang Maha Membuat Perhitungan" },
+            { no: 42, arabic: "يَا جَلِيلُ", latin: "Ya Jalil", trans: "Yang Maha Luhur" },
+            { no: 43, arabic: "يَا كَرِيمُ", latin: "Ya Karim", trans: "Yang Maha Pemurah" },
+            { no: 44, arabic: "يَا رَقِيبُ", latin: "Ya Raqib", trans: "Yang Maha Mengawasi" },
+            { no: 45, arabic: "يَا مُجِيبُ", latin: "Ya Mujib", trans: "Yang Maha Mengabulkan" },
+            { no: 46, arabic: "يَا وَاسِعُ", latin: "Ya Wasi'", trans: "Yang Maha Luas" },
+            { no: 47, arabic: "يَا حَكِيمُ", latin: "Ya Hakim", trans: "Yang Maha Bijaksana" },
+            { no: 48, arabic: "يَا وَدُودُ", latin: "Ya Wadud", trans: "Yang Maha Mengasihi" },
+            { no: 49, arabic: "يَا مَجِيدُ", latin: "Ya Majid", trans: "Yang Maha Mulia" },
+            { no: 50, arabic: "يَا بَاعِثُ", latin: "Ya Ba'its", trans: "Yang Maha Membangkitkan" },
+            { no: 51, arabic: "يَا شَهِيدُ", latin: "Ya Syahid", trans: "Yang Maha Menyaksikan" },
+            { no: 52, arabic: "يَا حَقُّ", latin: "Ya Haqq", trans: "Yang Maha Benar" },
+            { no: 53, arabic: "يَا وَكِيلُ", latin: "Ya Wakil", trans: "Yang Maha Menyerahkan" },
+            { no: 54, arabic: "يَا قَوِيُّ", latin: "Ya Qawiy", trans: "Yang Maha Kuat" },
+            { no: 55, arabic: "يَا مَتِينُ", latin: "Ya Matin", trans: "Yang Maha Kokoh" },
+            { no: 56, arabic: "يَا وَلِيُّ", latin: "Ya Waliyy", trans: "Yang Maha Melindungi" },
+            { no: 57, arabic: "يَا حَمِيدُ", latin: "Ya Hamid", trans: "Yang Maha Terpuji" },
+            { no: 58, arabic: "يَا مُحْصِي", latin: "Ya Muhshi", trans: "Yang Maha Menghitung" },
+            { no: 59, arabic: "يَا مُبْدِئُ", latin: "Ya Mubdi'", trans: "Yang Maha Memulai" },
+            { no: 60, arabic: "يَا مُعِيدُ", latin: "Ya Mu'id", trans: "Yang Maha Mengembalikan" },
+            { no: 61, arabic: "يَا مُحْيِي", latin: "Ya Muhyi", trans: "Yang Maha Menghidupkan" },
+            { no: 62, arabic: "يَا مُمِيتُ", latin: "Ya Mumit", trans: "Yang Maha Mematikan" },
+            { no: 63, arabic: "يَا حَيُّ", latin: "Ya Hayy", trans: "Yang Maha Hidup" },
+            { no: 64, arabic: "يَا قَيُّومُ", latin: "Ya Qayyum", trans: "Yang Maha Mandiri" },
+            { no: 65, arabic: "يَا وَاجِدُ", latin: "Ya Wajid", trans: "Yang Maha Penemu" },
+            { no: 66, arabic: "يَا مَاجِدُ", latin: "Ya Majid", trans: "Yang Maha Mulia" },
+            { no: 67, arabic: "يَا وَاحِدُ", latin: "Ya Wahid", trans: "Yang Maha Esa" },
+            { no: 68, arabic: "يَا أَحَدُ", latin: "Ya Ahad", trans: "Yang Maha Tunggal" },
+            { no: 69, arabic: "يَا صَمَدُ", latin: "Ya Shamad", trans: "Yang Maha Dibutuhkan" },
+            { no: 70, arabic: "يَا قَادِرُ", latin: "Ya Qadir", trans: "Yang Maha Menentukan" },
+            { no: 71, arabic: "يَا مُقْتَدِرُ", latin: "Ya Muqtadir", trans: "Yang Maha Berkuasa" },
+            { no: 72, arabic: "يَا مُقَدِّمُ", latin: "Ya Muqaddim", trans: "Yang Maha Mendahulukan" },
+            { no: 73, arabic: "يَا مُؤَخِّرُ", latin: "Ya Mu'akhkhir", trans: "Yang Maha Mengakhirkan" },
+            { no: 74, arabic: "يَا أَوَّلُ", latin: "Ya Awwal", trans: "Yang Maha Awal" },
+            { no: 75, arabic: "يَا آخِرُ", latin: "Ya Akhir", trans: "Yang Maha Akhir" },
+            { no: 76, arabic: "يَا ظَاهِرُ", latin: "Ya Zhahir", trans: "Yang Maha Nyata" },
+            { no: 77, arabic: "يَا بَاطِنُ", latin: "Ya Bathin", trans: "Yang Maha Gaib" },
+            { no: 78, arabic: "يَا وَالِي", latin: "Ya Wali", trans: "Yang Maha Memerintah" },
+            { no: 79, arabic: "يَا مُتَعَالِي", latin: "Ya Muta'ali", trans: "Yang Maha Tinggi" },
+            { no: 80, arabic: "يَا بَرُّ", latin: "Ya Barr", trans: "Yang Maha Dermawan" },
+            { no: 81, arabic: "يَا تَوَّابُ", latin: "Ya Tawwab", trans: "Yang Maha Penerima Taubat" },
+            { no: 82, arabic: "يَا مُنْتَقِمُ", latin: "Ya Muntaqim", trans: "Yang Maha Pemberi Balasan" },
+            { no: 83, arabic: "يَا عَفُوُّ", latin: "Ya 'Afuw", trans: "Yang Maha Pemaaf" },
+            { no: 84, arabic: "يَا رَؤُوفُ", latin: "Ya Ra'uf", trans: "Yang Maha Pengasuh" },
+            { no: 85, arabic: "يَا مَالِكُ الْمُلْكِ", latin: "Ya Malikul Mulk", trans: "Penguasa Kerajaan" },
+            { no: 86, arabic: "يَا ذُو الْجَلَالِ وَالإِكْرَامِ", latin: "Ya Dzul Jalali wal Ikram", trans: "Pemilik Kebesaran & Kemuliaan" },
+            { no: 87, arabic: "يَا مُقْسِطُ", latin: "Ya Muqsit", trans: "Yang Maha Pemberi Keadilan" },
+            { no: 88, arabic: "يَا جَامِعُ", latin: "Ya Jami'", trans: "Yang Maha Mengumpulkan" },
+            { no: 89, arabic: "يَا غَنِيُّ", latin: "Ya Ghaniyy", trans: "Yang Maha Kaya" },
+            { no: 90, arabic: "يَا مُغْنِي", latin: "Ya Mughni", trans: "Yang Maha Pemberi Kekayaan" },
+            { no: 91, arabic: "يَا مَانِعُ", latin: "Ya Mani'", trans: "Yang Maha Pencegah" },
+            { no: 92, arabic: "يَا ضَارُّ", latin: "Ya Dharr", trans: "Yang Maha Penimpa Kemudaratan" },
+            { no: 93, arabic: "يَا نَافِعُ", latin: "Ya Nafi'", trans: "Yang Maha Pemberi Manfaat" },
+            { no: 94, arabic: "يَا نُورُ", latin: "Ya Nur", trans: "Yang Maha Bercahaya" },
+            { no: 95, arabic: "يَا هَادِي", latin: "Ya Hadi", trans: "Yang Maha Pemberi Petunjuk" },
+            { no: 96, arabic: "يَا بَدِيعُ", latin: "Ya Badi'", trans: "Yang Maha Pencipta Tiada Bandingan" },
+            { no: 97, arabic: "يَا بَاقِي", latin: "Ya Baqi", trans: "Yang Maha Kekal" },
+            { no: 98, arabic: "يَا وَارِثُ", latin: "Ya Warith", trans: "Yang Maha Pewaris" },
+            { no: 99, arabic: "يَا رَشِيدُ", latin: "Ya Rasyid", trans: "Yang Maha Pandai" }
+        ];
+
+        function renderHusna(data) {
+            const viewport = document.getElementById('husnaViewport');
+            viewport.innerHTML = '';
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'husna-card';
+                card.innerHTML = `
+                    <div class="husna-number">${item.no}</div>
+                    <div class="husna-details">
+                        <div class="husna-latin">${item.latin}</div>
+                        <div class="husna-translation">${item.trans}</div>
+                    </div>
+                    <div class="husna-arabic">${item.arabic}</div>
+                `;
+                viewport.appendChild(card);
+            });
+
+            document.getElementById('totalCount').innerText = `Menampilkan ${data.length} dari 99 Asmaul Husna`;
+        }
+
+        function filterHusna() {
+            const keyword = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = husnaData.filter(item => 
+                item.latin.toLowerCase().includes(keyword) || 
+                item.trans.toLowerCase().includes(keyword) ||
+                item.arabic.includes(keyword) ||
+                item.no.toString() === keyword
+            );
+            renderHusna(filtered);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHusna(husnaData);
+        });
+    </script>
+</body>
+</html>
