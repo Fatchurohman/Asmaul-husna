@@ -241,17 +241,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 8px;
+            gap: 10px;
         }
 
         .husna-number {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--gold-light);
             background: rgba(212, 175, 55, 0.2);
             border: 1px solid var(--gold-glorious);
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -267,36 +267,15 @@
         }
 
         .husna-latin {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--gold-light);
         }
 
         .husna-translation {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-latin);
             font-weight: 600;
-        }
-
-        /* Tombol Audio Speaker di Tiap Item */
-        .btn-speak {
-            background: linear-gradient(135deg, var(--gold-glorious), var(--gold-dark));
-            border: none;
-            color: #051A10;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-            flex-shrink: 0;
-            font-size: 0.9rem;
-        }
-
-        .btn-speak:active {
-            transform: scale(0.95);
         }
 
         /* Teks Arab 3D Gold Mewah & Dinamis untuk Lansia */
@@ -314,9 +293,9 @@
         }
 
         /* Ukuran Font Dinamis */
-        .size-sedang { font-size: 1.7rem; }
-        .size-besar { font-size: 2.1rem; }
-        .size-sangat-besar { font-size: 2.6rem; }
+        .size-sedang { font-size: 1.8rem; }
+        .size-besar { font-size: 2.2rem; }
+        .size-sangat-besar { font-size: 2.8rem; }
 
         .footer-info {
             text-align: center;
@@ -487,7 +466,6 @@
                 card.className = 'husna-card';
                 card.innerHTML = `
                     <div class="husna-number">${item.no}</div>
-                    <button class="btn-speak" onclick="speakArabic('${item.arabic}')" title="Dengar Pelafalan"><i class="fa-solid fa-volume-high"></i></button>
                     <div class="husna-details">
                         <div class="husna-latin">${item.latin}</div>
                         <div class="husna-translation">${item.trans}</div>
@@ -498,18 +476,6 @@
             });
 
             document.getElementById('totalCount').innerText = `Menampilkan ${data.length} dari 99 Asmaul Husna`;
-        }
-
-        function speakArabic(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Hentikan suara sebelumnya jika ada
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'ar-SA'; // Bahasa Arab
-                utterance.rate = 0.8; // Kecepatan sedikit lambat agar pas untuk lansia
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert('Fitur suara tidak didukung di peramban ini.');
-            }
         }
 
         function filterHusna() {
